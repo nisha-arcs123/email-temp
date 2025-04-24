@@ -8,12 +8,99 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body style="font-family: 'Roboto', sans-serif; background-color: #dedede; margin: 0; padding: 0; box-sizing: border-box;">
+  <style>
 
-<table width="800" border="0" cellpadding="0" cellspacing="0" align="center" style="padding: 20px; background-color: #FFFFFF;">
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+    }
+    .table-scroll {
+        overflow-x: auto;  /* Enables horizontal scrolling */       /* Make sure it doesn't overflow the layout */
+    }
+      
+    .employee-table {
+        border: 1px solid #E5E6EC;
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        min-width: 800px;
+        border-radius: 11px;
+    }
+    
+    .employee-table thead th {
+        padding-left: 10px;
+        background-color: #F2F3F5;
+    }
+
+    .employee-table thead th{
+        white-space: nowrap;
+    }
+    
+    .employee-table thead th:first-child {
+        border-top-left-radius: 11px;
+    }
+    
+    .employee-table thead th:last-child {
+        border-top-right-radius: 11px;
+    }
+  
+    .employee-table tbody td {
+        padding: 8px 0;
+        border-bottom: 1px solid #E5E6EC;
+        position: relative;
+        padding-right: 24px;
+    }
+
+    .employee-table tbody tr:hover {
+        background-color: #F6F6F6;
+    }
+
+    .employee-table tbody tr td:not(:nth-child(3)):hover::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0; /* controls distance from the right edge */
+        width: 16px;
+        height: 16px;
+        background-image: url('./copy.png'); /* your image path */
+        background-size: cover;
+        background-repeat: no-repeat;
+        transform: translateY(-50%); /* vertically center the image */
+        z-index: 100;
+        cursor: pointer;
+    
+    }
+    .employee-table tbody tr td:last-child:hover::after {
+        right: 6px;
+    }
+    /* Optional: round bottom corners on last row */
+    .employee-table tbody tr td{
+        padding-left: 10px;
+    }
+  
+    .employee-table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 11px;
+    }
+    
+    .employee-table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 11px;
+    }
+    
+   
+    
+</style>
+</head>
+<body style="font-family: Arial, sans-serif; background-color:#dedede">
+
+<table width="800" border="0" cellpadding="0" cellspacing="0" align="center" style="padding: 20px; background-color:#FFFFFF">
 
   <!-- Header Section -->
+
   <tr>
     <td align="left">
       <table width="100%">
@@ -26,7 +113,7 @@
       <table width="100%">
         <tr>
             <td>
-              <b style="color: #11162F; font-size: 13px; line-height: 30px; font-weight: 900;"> SELF SERVICE PORTAL</b>
+              <b style="color: #11162F; font-size:13px; line-height:30px; font-weight:900"> SELF SERVICE PORTAL</b>
             </td>
         </tr>
       </table>
@@ -34,18 +121,21 @@
   </tr>
   
   <!-- spacer -->
-  <tr><td colspan="2" style="height: 25px;"></td></tr>
+  <tr><td colspan="2" style="height:25px;"></td></tr>
 
   <!-- Banner Image Substitute -->
-  <tr style="height: 115px;">
-    <td colspan="2" style="position: relative; overflow: hidden; background-color: #305DFF; color: #FFFFFF; text-align: left; font-size: 32px; font-weight: 800; padding: 12px; border-radius: 10px; font-family: Montserrat, sans-serif; z-index: 2;">
-      Authority Update Required!
-
-      <img src="./cuate.png" alt="" style="position: absolute; width: 160px; height: 160px; top: -42px; right: 94px; z-index: -1;">
-      <img src="./Group (1).png" alt="" style="position: absolute; top: 9px; right: -37px; z-index: -1;">
-      <img src="./Group (2).png" alt="" style="position: absolute; bottom: 0; left: 0; z-index: -1;">
-    </td>
-  </tr>
+ 
+    <tr width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width: 739px; margin: auto; border-radius: 10px; overflow: hidden;">
+      <td 
+        colspan="2"
+        background="Illustration.png" 
+        valign="middle" 
+        padding="12px"
+        height="115" 
+        style="background-size: cover;background-position: center;  border-radius: 10px;font-family: Montserrat, sans-serif;z-index:2;">
+        <p style=" color: #FFFFFF; text-align: left; font-size: 32px; font-weight:800; font-family: Montserrat, sans-serif; margin-left:12px">Authority Update Required!</p>
+      </td>
+    </tr>
 
   <!-- Spacer -->
   <tr><td colspan="2" style="height: 32px;"></td></tr>
@@ -53,15 +143,15 @@
   <!-- Message Section -->
   <tr align="left">
     <td style="width: 34px;">
-        <img src="./wave.png" alt="" width="28" height="26">
+        <img src="./wave.png" alt="" width=28 height=26>
     </td>
-    <td style="font-size: 24px; font-weight: 600; color: #11162F;">
+    <td style="font-size: 24px; font-weight:600; color:#11162F">
       <b>Hello Team</b>
     </td>
   </tr>
 
   <tr>
-    <td colspan="2" style="padding-top: 12px; font-size: 14px; color: #53585B; font-weight: 400; line-height: 22px;">
+    <td colspan="2" style="padding-top: 12px; font-size: 14px; color:#53585B; font-weight:400; line-height:22px;">
       Please be informed that the following employees have recently left the company. As some of them were assigned as authorities (e.g., System Owner, Product Owner, Project Manager) for various applications, kindly review and update their roles accordingly to ensure proper management and continuity.
     </td>
   </tr>
@@ -71,7 +161,7 @@
 
   <!-- List Header -->
   <tr>
-    <td colspan="2" style="font-weight: 600; line-height: 22px; font-size: 16px; padding-bottom: 12px;">
+    <td colspan="2" style="font-weight: 600;line-height: 22px; font-size: 16px; padding-bottom: 12px;">
       List of Departed Employees:
     </td>
   </tr>
@@ -79,59 +169,60 @@
   <!-- Table of Employees -->
   <tr>
     <td colspan="2">
-        <div style="overflow-x: auto;">
-            <table width="100%" cellpadding="8" cellspacing="0" style="border: 1px solid #E5E6EC; border-collapse: separate; border-spacing: 0; width: 100%; min-width: 800px; border-radius: 11px;">
-                <thead style="background-color: #F2F3F5; font-size: 14px; font-weight: 600; line-height: 22px; color: #202020;">
-                <th align="left" style="padding-left: 10px; background-color: #F2F3F5; white-space: nowrap; border-top-left-radius: 11px;">Name</th>
-                <th align="left" style="padding-left: 10px; background-color: #F2F3F5; white-space: nowrap;">Email</th>
-                <th align="left" style="padding-left: 10px; background-color: #F2F3F5; white-space: nowrap;">Termination Date</th>
-                <th align="left" style="padding-left: 10px; background-color: #F2F3F5; white-space: nowrap;">Authority</th>
-                <th align="left" style="padding-left: 10px; background-color: #F2F3F5; white-space: nowrap; border-top-right-radius: 11px;">Application Name</th>
+        <div class="table-scroll">
+            <table width="100%" cellpadding="8" cellspacing="0" class="employee-table">
+                <thead style="background-color: #F2F3F5;font-size:14px;font-weight:600;line-height:22px;color:#202020;">
+                <th align="left">Name</th>
+                <th align="left">Email</th>
+                <th align="left">Termination Date</th>
+                <th align="left">Authority</th>
+                <th align="left">Application Name</th>
                 </thead>
-                <tbody style="font-size: 13px; font-weight: 500; color: #53585B;">
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Chetan Sharma sdbcbncbdbcdvcdsvcsdvchdvbchd</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">csharma@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Jun 17th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">System Owner</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">1Password</td>
+                <tbody style="font-size:13px;font-weight:500;color:#53585B;">
+                    <tr>
+                        <td>Chetan Sharma</td>
+                        <td>csharma@exelixis.com</td>
+                        <td>Jun 17th, 2025</td>
+                        <td>System Owner</td>
+                        <td>1Password</td>
                     </tr>
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Rohit Kumar</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">rohkumar@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Jun 17th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Business Owner</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">4G Clinical IRT</td>
+                    <tr>
+                        <td>Rohit Kumar</td>
+                        <td>rohkumar@exelixis.com</td>
+                        <td>Jun 17th, 2025</td>
+                        <td>Business Owner</td>
+                        <td>4G Clinical IRT</td>
                     </tr>
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Ravi Kumar</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">ravikumar@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Aug 12th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Product Owner</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">AACR Journals</td>
+                    <tr>
+                        <td>Ravi Kumar</td>
+                        <td>ravikumar@exelixis.com</td>
+                        <td>Aug 12th, 2025</td>
+                        <td>Product Owner</td>
+                        <td>AACR Journals</td>
                     </tr>
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Gokul Mohanarangan</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">gmohanarangan@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Aug 18th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Secondary Approver</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Accruent</td>
+                    <tr>
+                        <td>Gokul Mohanarangan</td>
+                        <td>gmohanarangan@exelixis.com</td>
+                        <td>Aug 18th, 2025</td>
+                        <td>Secondary Approver</td>
+                        <td>Accruent</td>
                     </tr>
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Prashanth Mamidala</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">pmamidala@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Aug 20th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Primary Approver</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Acrobat Pro</td>
+                    <tr>
+                        <td>Prashanth Mamidala</td>
+                        <td>pmamidala@exelixis.com</td>
+                        <td>Aug 20th, 2025</td>
+                        <td>Primary Approver</td>
+                        <td>Acrobat Pro</td>
                     </tr>
-                    <tr style="hover: background-color: #F6F6F6;">
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px; border-bottom-left-radius: 11px;">Vijay Patibanda</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">vpatibanda@exelixis.com</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">Aug 27th, 2025</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px;">IT Contact</td>
-                        <td style="padding: 8px 0; border-bottom: 1px solid #E5E6EC; position: relative; padding-right: 24px; padding-left: 10px; border-bottom-right-radius: 11px;">Acrobat Sign</td>
+                    <tr>
+                        <td>Vijay Patibanda</td>
+                        <td>vpatibanda@exelixis.com</td>
+                        <td>Aug 27th, 2025</td>
+                        <td>IT Contact</td>
+                        <td>Acrobat Sign</td>
                     </tr>
                 </tbody>
+            
             </table>
         </div>
     </td>
@@ -142,35 +233,37 @@
 
   <!-- Footer Note -->
   <tr>
-    <td colspan="2" style="font-weight: 400; line-height: 22px; font-size: 14px; padding-bottom: 8px; color: #53585B;">
+    <td colspan="2" style="font-weight: 400;line-height: 22px; font-size: 14px; padding-bottom: 8px; color:#53585B">
       Please proceed with assigning new authorities where applicable.
     </td>
   </tr>
 
+
   <tr>
-    <td colspan="2" style="font-weight: 400; line-height: 22px; font-size: 14px; color: #53585B;">
+    <td colspan="2" style="font-weight: 400;line-height: 22px; font-size: 14px; color:#53585B">
         This notification has been generated automatically by the portal. If you require further assistance, please access the portal for additional details.
         Thank you.
     </td>
   </tr>
   
-  <!-- spacer -->
+<!-- spacer -->
   <tr><td colspan="2" style="height: 32px;"></td></tr>
 
   <tr>
-    <td colspan="2" style="font-weight: 400; line-height: 24px; font-size: 16px; color: #53585B;">
+    <td colspan="2" style="font-weight: 400;line-height: 24px; font-size: 16px; color:#53585B">
       Thank you.
     </td>
   </tr>
 
   <tr>
-    <td colspan="2" style="font-weight: 600; line-height: 22px; font-size: 16px; padding-bottom: 8px; color: #53585B;">
+    <td colspan="2" style="font-weight: 600;line-height: 22px; font-size: 16px; padding-bottom: 8px; color:#53585B">
        Self Service Portal
     </td>
   </tr>
+      
 
   <tr>
-    <td colspan="2" style="font-weight: 400; line-height: 22px; font-size: 14px; color: #53585B;">
+    <td colspan="2" style="font-weight: 400;line-height: 22px; font-size: 14px; color:#53585B">
         This is a system generated message. Do not reply.
     </td>
   </tr>
